@@ -3,6 +3,8 @@ import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import axios from 'axios'
 
+const backend_url = process.env.BACKEND_URI || "http://localhost:3000";
+
 export const useAuthStore = defineStore('auth', () => {
   // State
   const code = ref<string | null>(null)
@@ -16,7 +18,7 @@ export const useAuthStore = defineStore('auth', () => {
     // For example, call your backend endpoint: POST /api/verify-code
     // Adjust the URL if needed. If your backend is running on localhost:3000, do something like:
     // 'http://localhost:3000/api/verify-code'
-    const url = 'http://localhost:3000/verify'
+    const url = backend_url + '/verify'
 
     try {
       const response = await axios.post(url, { code: accessCode })

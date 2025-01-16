@@ -10,6 +10,7 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
+const host = process.env.ADDR || "127.0.0.1";
 const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/wedding';
 
 // Middleware
@@ -38,6 +39,6 @@ app.post('/verify', accessCodeRouter);
 app.post('/register', registerGuest);
 
 // Start server
-app.listen(port, () => {
+app.listen(port, host, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
