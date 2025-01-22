@@ -78,7 +78,8 @@
     }
   
     try {
-      const response = await axios.post('http://localhost:3000/register', {
+      const host = process.env.BACKEND_URI || "http://localhost:3000";
+      const response = await axios.post(host + '/register', {
         code: authStore.code,
         name: name.value,
         email: email.value,
