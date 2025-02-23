@@ -13,7 +13,7 @@ const verifyAccessCode = async (req: Request, res: Response): Promise<any> => {
     // Use Mongoose to look up the code in MongoDB
     const foundCode = await AccessCode.findOne({ code });
     if (!foundCode) {
-      return res.status(404).json({ error: 'Invalid code' });
+      return res.status(401).json({ error: 'Invalid code' });
     }
 
     // Code found - return success and any info you'd like.

@@ -23,7 +23,7 @@ const registerGuest = async (req: Request, res: Response): Promise<any> => {
     // Find the AccessCode document
     const foundCode = await AccessCode.findOne({ code });
     if (!foundCode) {
-      return res.status(404).json({ error: 'Invalid code' });
+      return res.status(401).json({ error: 'Invalid code' });
     }
 
     // "main_guest" is mandatory
