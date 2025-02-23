@@ -10,14 +10,10 @@ in {
     };
     backendPort = mkOption {
       type = types.port;
-      default = 2021;
+      default = 2020;
     };
     frontendHost = mkOption {
       type = types.str;
-    };
-    frontendPort = mkOption {
-      type = types.port;
-      default = 2020;
     };
     mongoUri = mkOption {
       type = types.str;
@@ -30,7 +26,7 @@ in {
       enableACME = true;
       serverAliases = [ "www.${cfg.backendHost}" ];
       locations."/" = {
-        proxyPass = "http://127.0.0.1:${cfg.backendPort}";
+        proxyPass = "http://127.0.0.1:${toString cfg.backendPort}";
         extraConfig = ''
           proxy_set_header  X-Script-Name /;
           proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
