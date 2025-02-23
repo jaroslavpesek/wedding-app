@@ -1,7 +1,6 @@
 {
   lib,
   buildNpmPackage,
-  breakpointHook,
   ...
 }:
   
@@ -11,7 +10,6 @@ buildNpmPackage rec {
   src = ./.;
 
   npmDepsHash = "sha256-GJVZwygSwWztjHFfbz/Qulj+eCXg7vgSuqe9xYzPvsg=";
-  nativeBuildInputs = [ breakpointHook ];
   installPhase = ''
     mkdir -p $out
     cp -a dist/. $out

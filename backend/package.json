@@ -9,6 +9,9 @@
     "build": "tsc",
     "start": "dotenv -e .env.production -- node dist/server.js"
   },
+  "bin": {
+    "server": "dist/server.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

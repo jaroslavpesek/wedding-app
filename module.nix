@@ -42,5 +42,13 @@ in {
         root = pkgs.callPackage ./frontend {};
       };
     };
+    systemd.services."backend-${cfg.backendHost}" = {
+      enable = true;
+      serviceConfig = {
+        ExecStart = let backend = pkgs.callPackage ./backend {};
+          in "${backend}/bin/server";
+        #Restart="always";
+      };
+    };
   };
 }
