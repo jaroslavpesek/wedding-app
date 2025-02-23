@@ -9,15 +9,15 @@ in {
       type = types.str;
     };
     backendPort = mkOption {
-      type = types.int;
-      default = mkDefault 2021;
+      type = types.port;
+      default = 2021;
     };
     frontendHost = mkOption {
       type = types.str;
     };
     frontendPort = mkOption {
-      type = types.int;
-      default = mkDefault 2020;
+      type = types.port;
+      default = 2020;
     };
     mongoUri = mkOption {
       type = types.str;
