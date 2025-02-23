@@ -10,14 +10,14 @@ in {
     };
     backendPort = mkOption {
       type = types.port;
-      default = 2021;
+      default = mkDefault 2021;
     };
     frontendHost = mkOption {
       type = types.str;
     };
     frontendPort = mkOption {
       type = types.port;
-      default = 2020;
+      default = mkDefault 2020;
     };
     mongoUri = mkOption {
       type = types.str;
